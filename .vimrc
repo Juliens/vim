@@ -8,6 +8,7 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
  
+Bundle 'tpope/vim-fugitive'
 " Syntaxt checks
 Bundle 'scrooloose/syntastic'
 
@@ -16,6 +17,17 @@ Bundle 'jakobwesthoff/argumentrewrap'
 
 " command-t
 Bundle 'git://git.wincent.com/command-t.git'
+
+Bundle 'Align'
+Bundle 'ack.vim'
+
+Bundle 'pyclewn-bin'
+
+
+Bundle 'SQLUtilities'
+
+Bundle 'Gundo'
+
 
 filetype plugin indent on     " required!
 
@@ -120,10 +132,24 @@ au BufRead,BufNewFile *.twig setfiletype htmldjango
 
 set modeline
 set modelines=1000000
+let mapleader = ","
 
 nnoremap <silent> <leader>s :call argumentrewrap#RewrapArguments()<CR>
 
 let g:CommandTAcceptSelectionTabMap ='<CR>'
-nnoremap <silent> <C-t> :CommandT<CR>
+nnoremap <silent> <C-f> :CommandT<CR>
+nnoremap <silent> <C-h> :GundoToggle<CR>
 
 map <C-]> <C-w><C-]><C-w>T
+au BufNewFile,BufRead *.c,*.cc,*.cpp,*.h map <F5> :!make test<CR>
+au BufNewFile,BufRead *.php map <F5> :!php %<CR>
+
+
+set relativenumber
+
+set wrap
+set textwidth=79
+set formatoptions=qrn1
+set colorcolumn=85
+
+nnoremap <leader>v V`]
