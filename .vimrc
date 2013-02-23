@@ -19,10 +19,6 @@ Bundle 'jakobwesthoff/argumentrewrap'
 Bundle 'git://git.wincent.com/command-t.git'
 
 Bundle 'Align'
-Bundle 'ack.vim'
-
-Bundle 'pyclewn-bin'
-
 
 Bundle 'SQLUtilities'
 
@@ -145,11 +141,11 @@ au BufNewFile,BufRead *.c,*.cc,*.cpp,*.h map <F5> :!make test<CR>
 au BufNewFile,BufRead *.php map <F5> :!php %<CR>
 
 
-set relativenumber
+"set relativenumber
 
 set wrap
 set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=85
 
-nnoremap <leader>v V`]
+"nnoremap <leader>v V`]
