@@ -1,3 +1,5 @@
+:runtime! /home/juliens/.vimtest
+
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -24,6 +26,11 @@ Bundle 'SQLUtilities'
 
 Bundle 'Gundo'
 
+Bundle "pangloss/vim-javascript"
+
+Bundle "https://github.com/docteurklein/vim-symfony.git"
+
+Bundle "https://github.com/arnaud-lb/vim-php-namespace.git"
 
 filetype plugin indent on     " required!
 
@@ -133,7 +140,8 @@ let mapleader = ","
 nnoremap <silent> <leader>s :call argumentrewrap#RewrapArguments()<CR>
 
 let g:CommandTAcceptSelectionTabMap ='<CR>'
-nnoremap <silent> <C-f> :CommandT<CR>
+nnoremap <silent> <C-f> :CommandT <CR>
+nnoremap <silent> <C-g> :CommandT ./src<CR>
 nnoremap <silent> <C-h> :GundoToggle<CR>
 
 map <C-]> <C-w><C-]><C-w>T
@@ -149,3 +157,20 @@ set formatoptions=qrn1
 set colorcolumn=85
 
 "nnoremap <leader>v V`]
+"
+    let g:syntastic_mode_map = { 'mode': 'passive',
+                               \ 'active_filetypes': ['ruby'],
+                               \ 'passive_filetypes': ['puppet', 'php'] }
+
+
+    let g:symfony_enable_shell_mapping = 0 "disable the mapping of symfony console
+
+    " Use your key instead of default key which is <C-F>
+    map <leader>c :execute ":!"g:symfony_enable_shell_cmd<CR>
+
+" first set path
+set path+=**
+
+inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
+noremap <Leader>u :call PhpInsertUse()<CR>
+map gf <C-w>gf<C-w>T
